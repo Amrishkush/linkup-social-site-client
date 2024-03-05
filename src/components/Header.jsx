@@ -1,14 +1,17 @@
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import { backendURL } from "../utils/apiURL";
+
 
 function Header({setSignIn, profileHeaderNav, setProfileHeaderNav}) {
 
+  const apiURL = `${backendURL}/users/logout` 
   const navigateToSignInPage = useNavigate()
 
   const handleSignOut = async () => {
     try {
       const storedAccesToken = localStorage.getItem("accessToken")
-      await axios.post("http://localhost:3000/users/logout", null ,{
+      await axios.post(apiURL, null ,{
         headers: {
           Authorization: `Bearer ${storedAccesToken}`  //must take care of space very wisely
         }
@@ -41,11 +44,15 @@ function Header({setSignIn, profileHeaderNav, setProfileHeaderNav}) {
           </nav>
         </div>
         }
+        {profileHeaderNav.isLoggedIn ?
         <div className="flex mr-2">
-            {profileHeaderNav.isLoggedIn ? <button className="border-2 border-orange-500 p-2 text-sm font-normal" onClick={handleSignOut}>Sign Out</button> : ""}
+             
+            
+            <button className="border-2 border-orange-500 p-2 text-sm font-normal" onClick={handleSignOut}>Sign Out</button> 
             <h2 className=" p-2 font-semibold text-sm">{profileHeaderNav.userFullName}</h2>
-            <img src={profileHeaderNav.userAvatar || "/userImage.png"} alt=""  className="rounded-full w-10 h-10"/>
+            <img src={profileHeaderNav.userAvatar || "/userImage.png"} alt=""  className="rounded-full w-10 h-10"/> 
         </div>
+        : ""}
       </section>
     </>
   );

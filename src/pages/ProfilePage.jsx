@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import { FaThumbsUp, FaRegComment } from "react-icons/fa";
 import axios from "axios"
+import { backendURL } from "../utils/apiURL";
 
 
-//in image kept in public always use slash then directly name / showing see below must
+//in image kept in public always use slash then directly name // showing see below must
 function ProfilePage({setProfileHeaderNav}) {
    
+  const apiURL = `${backendURL}/users/current-user`
    const [userDetails, setUserDetails] = useState({})
 //    useEffect(() => {
 //     const interceptor = axios.interceptors.request.use((config) => {
@@ -42,7 +44,7 @@ useEffect(() => {
     const fetchData = async () => {
       try {
         const storedAccessToken = localStorage.getItem("accessToken");
-        const response = await axios.get("http://localhost:3000/users/current-user", {
+        const response = await axios.get(apiURL, {
           headers: {
             Authorization: `Bearer ${storedAccessToken}`  //must take care of space very wisely
           }

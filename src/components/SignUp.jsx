@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios"
+import { backendURL } from "../utils/apiURL";
 
 function SignUp({ setSignIn }) {
 
@@ -9,7 +10,7 @@ const [password, setPassword] = useState("")
 const [fullName, setFullName] = useState("")
 const [avatar, setAvatar] = useState(null)
 //name of every inputfield must match to backend name to which we are posting 
-const apiURL = "http://localhost:3000/users/register"
+const apiURL = `${backendURL}/users/register`
 
 const handleSignUp = async(e)=>{
   e.preventDefault();

@@ -11,7 +11,7 @@ function App() {
   const [profileHeaderNav, setProfileHeaderNav] = useState({})
   return (
     <BrowserRouter>
-      <div className="bg-orange-50 h-full">
+      <div className="bg-orange-50 h-screen">
         <Header setSignIn={setSignIn} profileHeaderNav={profileHeaderNav} setProfileHeaderNav={setProfileHeaderNav} />
         <div>
           <Routes>
