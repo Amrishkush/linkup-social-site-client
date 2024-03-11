@@ -1,5 +1,5 @@
-# LinkUp - Social Networking Platform
-LinkUp is a dynamic social networking platform that connects people, fostering meaningful connections and interactions. This is frontend part of the site.
+# LinkUp Social-Site (Frontend)
+This repository contains the frontend code for a server, serving as the frontend of a web application. LinkUp is a dynamic social networking platform made using ReactJs. 
 
 ##  About Me
 ###  Hi, I'm Amrish! 👋
