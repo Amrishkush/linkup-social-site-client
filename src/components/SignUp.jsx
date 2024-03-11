@@ -56,7 +56,7 @@ const handleSignUp = async(e)=>{
             </div>
             <div>
               <input
-                type="text"
+                type="password"
                 name="password"
                 placeholder="Password"
                 onChange={(e)=>setPassword(e.target.value)}
